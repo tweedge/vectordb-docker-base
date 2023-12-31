@@ -1,1 +1,2 @@
 vectordb2==0.1.9
+mrpt @ git+https://github.com/vioshyvo/mrpt@88cc6f40782ca0f8de7491279766ded01d767861
