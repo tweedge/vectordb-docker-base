@@ -6,7 +6,7 @@ RUN mkdir /opt/dependencies/
 COPY ./dependencies/. /opt/dependencies/
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends git && \
+    apt-get install -y --no-install-recommends git gcc && \
     apt-get purge -y --auto-remove && \
     rm -rf /var/lib/apt/lists/*
 

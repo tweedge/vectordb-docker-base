@@ -12,4 +12,25 @@ memory.save(
 query = "green"
 results = memory.search(query, top_n = 1)
 
+# Validate that everything worked as expected
 print(results)
+
+if len(results) != 1:
+    print("TEST FAILED: bad number of results, requested 1")
+    exit(1)
+
+result = results[0]
+if not "chunk" in result.keys() or not "metadata" in result.keys():
+    print("TEST FAILED: not all required keys were present in the result")
+    exit(1)
+
+if not "chunk" in result.keys():
+    print("TEST FAILED: metadata not present")
+    exit(1)
+
+if result["chunk"] != "apples are green":
+    print("TEST FAILED: wrong chunk returned")
+    exit(1)
+
+print("PASSED SELF-TEST")
+exit(0)
