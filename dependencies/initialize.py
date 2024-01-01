@@ -8,6 +8,9 @@ memory.save(
     [{"url": "https://apples.com"}, {"url": "https://oranges.com"}], # associate any kind of metadata with it (optional)
 )
 
+# By this point we'll have definitely gathered the relevant models from the web
+print("INITIALIZED; RUNNING BRIEF SELF-TEST")
+
 # Search for top n relevant results, automatically using embeddings
 query = "green"
 results = memory.search(query, top_n = 1)
@@ -32,5 +35,5 @@ if result["chunk"] != "apples are green":
     print("TEST FAILED: wrong chunk returned")
     exit(1)
 
-print("PASSED SELF-TEST")
-exit(0)
+print("INITIALIZED AND PASSED SELF-TEST")
+
