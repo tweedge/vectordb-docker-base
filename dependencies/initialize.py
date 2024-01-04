@@ -7,8 +7,14 @@ model = sys.argv[1]
 memory = Memory(embeddings=model)
 
 memory.save(
-    ["apples are green", "oranges are orange"],  # save your text content. for long text we will automatically chunk it
-    [{"url": "https://apples.com"}, {"url": "https://oranges.com"}], # associate any kind of metadata with it (optional)
+    [  # save your text content. for long text we will automatically chunk it
+        "apples are green",
+        "oranges are orange",
+    ],
+    [  # associate any kind of metadata with it (optional)
+        {"url": "https://apples.com"},
+        {"url": "https://oranges.com"},
+    ],
 )
 
 # By this point we'll have definitely gathered the relevant models from the web
@@ -16,7 +22,7 @@ print("INITIALIZED; RUNNING BRIEF SELF-TEST")
 
 # Search for top n relevant results, automatically using embeddings
 query = "green"
-results = memory.search(query, top_n = 1)
+results = memory.search(query, top_n=1)
 
 # Validate that everything worked as expected
 print(results)
@@ -39,4 +45,3 @@ if result["chunk"] != "apples are green":
     exit(1)
 
 print("INITIALIZED AND PASSED SELF-TEST")
-
