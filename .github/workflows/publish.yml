@@ -6,7 +6,7 @@ on:
       - 'main'
 
 jobs:
-  docker:
+  docker-base:
     runs-on: ubuntu-latest
     steps:
       -
@@ -25,5 +25,37 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
+          file: ./images/core/Dockerfile
           push: true
-          tags: tweedge/vectordb-docker-base:latest
+          tags: tweedge/vectordb-docker-base:core
+
+  docker-build-in-models:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - dockerfile: ./images/bge-base-en-v1.5/Dockerfile
+            tag: tweedge/vectordb-docker-base:bge-base-en-v1.5
+          - dockerfile: ./images/bge-small-en-v1.5/Dockerfile
+            tag: tweedge/vectordb-docker-base:bge-small-en-v1.5
+    steps:
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          file: ${{ matrix.dockerfile }}
+          push: true
+          tags: ${{ matrix.tag }}

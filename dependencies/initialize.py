@@ -1,7 +1,10 @@
 from vectordb import Memory
+import sys
+
+model = sys.argv[1]
 
 # Memory is where all content you want to store/search goes.
-memory = Memory(embeddings="best")
+memory = Memory(embeddings=model)
 
 memory.save(
     ["apples are green", "oranges are orange"],  # save your text content. for long text we will automatically chunk it
