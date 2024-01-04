@@ -30,6 +30,7 @@ jobs:
           tags: tweedge/vectordb-docker-base:core
 
   docker-build-in-models:
+    needs: docker-base
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
