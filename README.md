@@ -8,9 +8,9 @@ This image is intended for use as a base image to build other applications on to
 
 Tagged images, sorted by size (smallest to largest):
 * `core` - just vectordb2, use this if you will download your own model during build, which you can do automatically by running `python3 /opt/dependencies/initialize.py <HuggingFace model name>` ex. `python3 /opt/dependencies/initialize.py TaylorAI/bge-micro-v2`
-* `bge-small-en-v1.5` - imported [BAAI/bge-small-en-v1.5](https://huggingface.co/BAAI/bge-small-en-v1.5)) (+0.13GB, 384 dimensions, 512 sequence length)
-* `bge-base-en-v1.5` - imported [BAAI/bge-base-en-v1.5](https://huggingface.co/BAAI/bge-base-en-v1.5)) (+0.44GB, 768 dimensions, 512 sequence length)
-* `bge-large-en-v1.5` - imported [BAAI/bge-large-en-v1.5](https://huggingface.co/BAAI/bge-large-en-v1.5)), (+1.34GB, 1024 dimensions, 512 sequence length)
+* `bge-small-en-v1.5` - imported [BAAI/bge-small-en-v1.5](https://huggingface.co/BAAI/bge-small-en-v1.5), (+0.13GB, 384 dimensions, 512 sequence length)
+* `bge-base-en-v1.5` - imported [BAAI/bge-base-en-v1.5](https://huggingface.co/BAAI/bge-base-en-v1.5), (+0.44GB, 768 dimensions, 512 sequence length)
+* `bge-large-en-v1.5` - imported [BAAI/bge-large-en-v1.5](https://huggingface.co/BAAI/bge-large-en-v1.5), (+1.34GB, 1024 dimensions, 512 sequence length)
 
 For detailed performance comparisons, check out [MTEB](https://huggingface.co/spaces/mteb/leaderboard).
 
