@@ -38,6 +38,8 @@ jobs:
         include:
           - dockerfile: ./images/bge-base-en-v1.5/Dockerfile
             tag: tweedge/vectordb-docker-base:bge-base-en-v1.5
+          - dockerfile: ./images/bge-large-en-v1.5/Dockerfile
+            tag: tweedge/vectordb-docker-base:bge-large-en-v1.5
           - dockerfile: ./images/bge-small-en-v1.5/Dockerfile
             tag: tweedge/vectordb-docker-base:bge-small-en-v1.5
     steps:
