@@ -1,1 +1,2 @@
 vectordb2==0.1.9
+tensorflow-hub==0.16.1
