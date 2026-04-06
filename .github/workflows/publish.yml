@@ -42,6 +42,8 @@ jobs:
             tag: tweedge/vectordb-docker-base:bge-large-en-v1.5
           - dockerfile: ./images/bge-small-en-v1.5/Dockerfile
             tag: tweedge/vectordb-docker-base:bge-small-en-v1.5
+          - dockerfile: ./images/all-mpnet-base-v2/Dockerfile
+            tag: tweedge/vectordb-docker-base:all-mpnet-base-v2
     steps:
       -
         name: Set up QEMU
